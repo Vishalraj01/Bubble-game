@@ -1,0 +1,193 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+    <style>
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            margin-top: 0px;
+            background-size: cover;
+            background-attachment: fixed;
+            display: grid;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: rgb(1, 15, 15);
+            background: url('https://pluspng.com/img-png/bubble-png-hd-bubble-hd-wallpapers-backgrounds-wallpaper-1920.png');
+            background-attachment: fixed;
+            background-repeat: round;
+            text-align: center;
+            font-family: 'Oxygen Mono', monospace;
+            color: rgb(185, 19, 46);
+        }
+
+        .dialog {
+            width: 690px;
+            height: 580px;
+            box-shadow: 0 0 3rem 0 rgba(30, 100, 192, 0.788);
+            position: relative;
+            background-color: rgb(10, 43, 73);
+            border-radius: 15px;
+            border: 2px solid #99f;
+            text-align: center;
+        }
+
+        .button {
+            border: none;
+            background: #5183bd;
+            color: #1d0404 !important;
+            font-weight: bolder;
+            padding: 20px;
+            text-transform: uppercase;
+            border-radius: 6px;
+            display: inline-block;
+            transition: all 0.3s ease 0s;
+            box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        }
+
+        .button:hover {
+            color: #404040 !important;
+            font-weight: 700 !important;
+            letter-spacing: 3px;
+            background-color: cornsilk;
+            border: blanchedalmond;
+            box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+            transition: all 0.3s ease 0s;
+            cursor: pointer;
+        }
+
+        h2 {
+            text-transform: uppercase;
+            letter-spacing: 1pt;
+            margin-bottom: 15px;
+            font-size: 45px;
+            color: #fff;
+            text-shadow: 0 1px 0 #ccc,
+                0 2px 0 #c9c9c9,
+                0 3px 0 #bbb,
+                0 4px 0 #b9b9b9,
+                0 5px 0 #aaa,
+                0 6px 1px rgba(0, 0, 0, .1),
+                0 0 5px rgba(0, 0, 0, .1),
+                0 1px 3px rgba(0, 0, 0, .3),
+                0 3px 5px rgba(0, 0, 0, .2),
+                0 5px 10px rgba(0, 0, 0, .25),
+                0 10px 10px rgba(0, 0, 0, .2),
+                0 20px 20px rgba(0, 0, 0, .15);
+        }
+
+        p {
+            text-align: center;
+            margin: 0;
+            font-size: 19px;
+            font-weight: 900;
+            letter-spacing: 1pt;
+            font-weight: lighter;
+            padding: 15px;
+            width: 96%;
+            display: none;
+            line-height: 35px;
+            text-shadow: 0 .5px 0 #ccc,
+                0 0.5px 0 #c9c9c9,
+                0 0.5px 0 #bbb,
+                0 0.5px 0 #b9b9b9,
+                0 0.5px 0 #aaa,
+                0 1px 1px rgba(0, 0, 0, .1),
+                0 0 1px rgba(0, 0, 0, .1),
+                0 1px 1px rgba(0, 0, 0, .3),
+                0 1px 3px rgba(0, 0, 0, .2),
+                0 3px 8px rgba(0, 0, 0, .25),
+                0 8px 8px rgba(0, 0, 0, .2),
+                0 15px 15px rgba(0, 0, 0, .15);
+            color: rgb(20, 148, 199);
+        }
+
+        #centeralign {
+            display: table-cell;
+            vertical-align: middle;
+        }
+    </style>
+    <title>Bubble Smasher v1.1</title>
+</head>
+
+<body>
+    <table id="start-game" class="dialog">
+        <tr style="height: 15%;">
+            <td>
+                <div>
+                    <h2>Game Instructions</h2>
+                </div>
+            </td>
+        </tr>
+        <tr style="height: 65%; text-align: justify; vertical-align: top;">
+            <td>
+                <p>
+                    Click on 'START THE GAME' button to start the game.You can see animated bubbles rotating randomly in
+                    the container. Click on bubble to blast it!!! Each bubble carries 5 points and score is displayed at
+                    top left corner. The Bubble Fill percentage indicator shows the % of bubble in the container. Ensure
+                    that the container is not filled with 75% of bubbles. If you are reached 75%, you will be given with
+                    10 seconds to clear them to reach the bubble less than 75%". You can not pause during this countdown and if you can not clear bubbles. Your GAME IS
+                    OVER !!!
+                </p>
+            </td>
+        </tr>
+        <tr style="height: 65%; text-align: justify; vertical-align: top;">
+            <td>
+                <h3 style="font-weight: bolder; text-align: center; ;"></h3>
+            </td>
+        </tr>
+        <tr style="height: 15%;">
+            <td>
+                <div><a id="btnStartGame" class="button" onclick="startGame();">Start The Game</a></div>
+            </td>
+        </tr>
+    </table>
+    <script>
+        function startGame() {
+            window.location = "Bubbles.html";
+        }
+
+        function typeEffect(element, speed) {
+            var text = element.innerHTML;
+            element.innerHTML = "";
+
+            var i = 0;
+            var timer = setInterval(function () {
+                if (i < text.length) {
+                    element.append(text.charAt(i));
+                    i++;
+                } else {
+                    clearInterval(timer);
+                }
+            }, speed);
+        }
+
+        // application
+        var speed = 35;
+        var h2 = document.querySelector('h2');
+        var p = document.querySelector('p');
+        var h3 = document.querySelector('h3');
+        var delay1 = h2.innerHTML.length * speed + speed;
+        var delay3 = delay1 + p.innerHTML.length * speed + speed;
+
+        // type affect to header
+        typeEffect(h2, speed);
+
+        setTimeout(function () {
+            p.style.display = "inline-block";
+            typeEffect(p, speed);
+        }, delay1);
+
+        // type affect to body
+        setTimeout(function () {
+            h3.innerHTML = "Excited!!! Let us Start the Game...!!!";
+            h3.style.letterSpacing = "3px";
+            typeEffect(h3, speed);
+        }, delay3);
+
+    </script>
+</body>
+
+</html>

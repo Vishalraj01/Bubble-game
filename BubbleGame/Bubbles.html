@@ -1,0 +1,138 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+    <style type="text/css">
+        body {
+            margin: 0;
+            padding: 0;
+            margin-top: 0px;
+            background-size: cover;
+            background-attachment: fixed;
+            display: grid;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: rgb(212, 230, 229);
+        }
+
+        header {
+            background-color: rgba(4, 37, 59, 0.842);
+            padding: 8px;
+            text-align: center;
+            font-size: 24px;
+            color: white;
+            border-radius: 19px;
+        }
+
+        .container {
+            box-shadow: 0 0 3rem 0 rgba(143, 154, 199, 0.788);
+            position: relative;
+            background: inherit;
+            overflow: scroll;
+            background-repeat: unset;
+            background-color: rgba(255, 251, 251, 0.219);
+            border-radius: 15px;
+            border-style: ridge;
+            border-color: lightsteelblue;
+        }
+
+        #Progress_Status {
+            width: 50%;
+            background-color: rgba(216, 193, 193, 0.938);
+            border-style: ridge;
+        }
+
+        #myprogressBar {
+            width: 1%;
+            height: 12px;
+            background-color: green;
+            text-align: center;
+            font-size: 13px;
+            font-weight: bold;
+            line-height: 43px;
+            color: black;
+        }
+
+        .button {
+            border: none;
+            background: #404040;
+            color: #ffffff !important;
+            font-weight: 100;
+            width: 131px;
+            padding-left: 20px;
+            padding-right: 20px;
+            padding-top: 11px;
+            padding-bottom: 11px;
+            text-transform: uppercase;
+            border-radius: 6px;
+            display: inline-block;
+            transition: all 0.3s ease 0s;
+            box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+        }
+        
+
+        .button:hover {
+            color: #ffffff !important;
+            font-weight: 700 !important;
+            letter-spacing: 3px;
+            background-color: rgba(4, 37, 59, 0.842);
+            border: blanchedalmond;
+            box-shadow: 0 12px 16px 0 rgba(158, 110, 110, 0.24), 0 17px 50px 0 rgba(158, 110, 110, 0.19);
+            transition: all 0.3s ease 0s;
+            cursor: pointer;;
+        }
+
+        .button:disabled{
+            color: #ffffff !important;
+            font-weight: 700 !important;
+            background-color: rgb(16, 29, 37);
+            border-style: groove;
+            cursor: not-allowed;;
+        }
+    </style>
+    <title>Bubble Smasher v1.1</title>
+</head>
+
+<body>
+    <table>
+        <tr>
+            <td colspan="4">
+                <header>Bubble Game Version 1</header>
+            </td>
+        </tr>
+        <tr>
+            <td style="width:15%; padding-left:16px;"><label id="txtScore" style="font-weight: bold;"> Your Score:
+                </label></td>
+            <td style="text-align: left; width:25%;"><label id="score"
+                    style="font-weight: bold; color: green;">0</label></td>
+            <td style="width:10%; "><label id="txtTimer" style="font-weight: bold;"> Timer: </label></td>
+            <td style="text-align: left; width:22%;"><label id="Timer" style="font-weight: bold; color: red;">0</label>
+            </td>
+        </tr>
+        <tr>
+            <td style="width:40%; padding-left:16px;"><label id="txtProgress" style="font-weight: bold;"> Bubble Fill %
+                </label></td>
+            <td colspan="3" style="width:45%; padding-right:9px;">
+                <div id="Progress_Status" style="width:95%">
+                    <div id="myprogressBar"></div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="4">
+                <br><canvas id="cnvContainer" width="450px" height="450px" class="container"></canvas>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="4" style="text-align: center">
+                <div>
+                    <button class="button" id="btnGame" onclick="PlayOrPause(this);">Pause</button>
+                </div>
+            </td>
+        </tr>
+    </table>
+    <script src=".\Bubbles.js"></script>
+</body>
+
+</html>
